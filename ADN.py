@@ -4,17 +4,34 @@ ADN
 
 	pass:
 
-1: def obtener_complemento (caracter_base):(EDWARD)
+1: def obtener_complemento (base):
+    complemento = ""
+    if(base == "A")
+        complemento = "T"
 
-	pass:
+    elif (base=="G"):
+        complemento = "C"
+
+    elif (base== "T"):
+        complemento ="A"
+
+    else:
+        complemento = "G"
+
+    return complemento
 
 2: def generar_complemento (cadena):(EDWARD)
 
 	pass:
 
-3: def validar_base ( caracter_base, complemento):(LUISA)
-	
-	pass:
+3: def validar_base (letra)
+    bases = ["A", "T", "C", "G"]
+    es_base=False
+    for i in bases:
+        if (letra==i):
+            es_base = True
+
+    return es_base
 
 4: def calcular_porcentaje(cadena1,cadena2): (ANDRES)
 
