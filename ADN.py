@@ -1,51 +1,3 @@
-ADN
-
-7: def funcion_base(caracter_base):(TODOS)
-
-	pass:
-
-1: def obtener_complemento (base):
-    complemento = ""
-    if(base == "A")
-        complemento = "T"
-
-    elif (base=="G"):
-        complemento = "C"
-
-    elif (base== "T"):
-        complemento ="A"
-
-    else:
-        complemento = "G"
-
-    return complemento
-
-2: def generar_complemento (cadena):(EDWARD)
-
-	pass:
-
-3: def validar_base (letra)
-    bases = ["A", "T", "C", "G"]
-    es_base=False
-    for i in bases:
-        if (letra==i):
-            es_base = True
-
-    return es_base
-
-4: def calcular_porcentaje(cadena1,cadena2): (ANDRES)
-
-	pass:
-
-5:  def validar_correspondencia_cadenas(cadena1,cadena2):(LUISA)
-
-	pass:
-
-6: validar_todas_bases(cadena):(ANDRES)
-
-	pass:
-
-
 bases = ["A","T","C","G"]
 
 #Funcion que genera el complemento de una base
@@ -76,26 +28,26 @@ def complemento_base(base):
    return complento
 
 # funcion para generar una cadena complementaria
+# funcion para generar una cadena complementaria
 def retorna_complemento(cadena):
-"""
-(str)->str
-#casos de prueba
->>> retorna_complemento("AT")
-'TA'
->>> retorna_complemento("TA")
-'AT'
->>> retorna_complemento("CG")
-'GC'
+    """
+    (str)->str
+    #casos de prueba
+    >>> retorna_complemento("AT")
+    'TA'
+    >>> retorna_complemento("TA")
+    'AT'
+    >>> retorna_complemento("CG")
+    'GC'
 
-:param cadena: recibe una cadena de adn
-:return: retorna el complemento de adn
-"""
-#desarrollo de la fincion
-resultado = ""
-for i in cadena:
-   resultado = resultado + complemento_base(i)
-return resultado
-
+    :param cadena: recibe una cadena de adn
+    :return: retorna el complemento de adn
+    """
+    #desarrollo de la fincion
+    resultado = ""
+    for i in cadena:
+        resultado = resultado + complemento_base(i)
+    return resultado
 #funcion para verificar si hay una base
 def es_base(letra):
   """
@@ -153,37 +105,41 @@ def cadena_valida(cadena):
 
 #funcion que calcula el porcentaje correspondiente de una cadena y otra
 def porcentaje_correspondencia(cadenaBase,cadenaComplem):
-   """
-   (str,str)-> float
-   #casos de prueba
-   >>> porcentaje_correspondencia("AT","TA")
-   TA
-   100.0
-   >>> porcentaje_correspondencia("CG","GT")
-   GT
-   50.0
-   >>> porcentaje_correspondencia("AAA","GCG")
-   GCG
-   0.0
+    """
+    (str,str)-> float
+    #casos de prueba
+    >>> porcentaje_correspondencia("AT","TA")
+    TA
+    2
+    100.0
+    >>> porcentaje_correspondencia("CG","GT")
+    GC
+    2
+    50.0
+    >>> porcentaje_correspondencia("AAA","GCG")
+    TTT
+    3
+    0.0
 
 
-   :param cadenaBase: primera cadena de adn a comparar para su porcentaje
-   :param cadenaComplem: segunda cadena recibida para comparar su porcentaje
-   :return: retorna el porcentaje total en termino de reales
-   """
-   # desarrollo de funcion
-   complementoReal = retorna_complemento(cadenaBase)
-   print(complementoReal)
-   total = len(cadenaComplem)
-   coincidencias = 0
-   cont = 0
-   while (cont < total):
-     if (cadenaComplem[cont]==complementoReal[cont]):
-        coincidencias = coincidencias + 1
+    :param cadenaBase: primera cadena de adn a comparar para su porcentaje
+    :param cadenaComplem: segunda cadena recibida para comparar su porcentaje
+    :return: retorna el porcentaje total en termino de reales
+    """
+    # desarrollo de funcion
+    complementoReal = retorna_complemento(cadenaBase)
+    print(complementoReal)
+    total = len(cadenaComplem)
+    print(total)
+    coincidencias = 0
+    cont = 0
+    while (cont < total):
+        if (cadenaComplem[cont]==complementoReal[cont]):
+          coincidencias = coincidencias + 1
         cont = cont + 1
         porcentaje = (coincidencias*100)/total
         porcentaje = round(porcentaje,2)
-   return porcentaje
+    return porcentaje
 
 # funcion que valida la correspondencia entre dos cadenas
 def correspondencia_Cadenas(cadenaBase,cadenaComplem):
@@ -208,25 +164,24 @@ def correspondencia_Cadenas(cadenaBase,cadenaComplem):
        correspondencia = True
    return correspondencia
 
-#
+# funcion que valida la correspondencia entre dos bases
 def correspondencia_base(base,complem):
-   """
-   (str,str)-> str
-  
-   >>> correspondencia_base("A","C")
-   >>> correspondencia_base()
-   >>>correspondencia_base()
-   :param base:
-   :param complem:
-   :return: retorna valor verdadero
-   """
-#desarrollo funcion   
-   complem_real = complemento_base(base)
-   correspondencia = False
-   if (complem == complem_real):
-     correspondencia = True
-     return correspondencia
+    """
+    (str,str)-> str
+    >>> correspondencia_base("A","C")
+    False
+    >>> correspondencia_base("A","T")
+    True
+    >>> correspondencia_base("C","G")
+    True
 
-
-
-
+    :param base: BASE ORIGINAL
+    :param complem: BASE COMPLEMENTARIA
+    :return: retorna valor verdadero
+    """
+    #desarrollo funcion
+    complem_real = complemento_base(base)
+    correspondencia = False
+    if (complem == complem_real):
+        correspondencia = True
+    return correspondencia
